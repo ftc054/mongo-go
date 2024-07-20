@@ -1,0 +1,40 @@
+
+services:
+  app:
+    image: "mcr.microsoft.com/devcontainers/go:1-1.22-bookworm"
+    volumes:
+      - ..:/workspace:cached
+    ports:
+      - "8090:8090"
+    command: sleep infinity
+    depends_on:
+      - psqldb
+
+
+
+  psqldb:
+    image: postgres:16.2
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5433:5433"
+    volumes:
+      - practice-psql:/var/lib/postgresql/data
+
+  mongodb:
+    image: mongo:6.0
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    ports:
+      - "27018:27018"
+    volumes:
+      - practice-mongo-db:/data/db 
+      - practice-mongo-config:/data/configdb
+
+volumes:
+  practice-psql: 
+  practice-mongo-db:
+  practice-mongo-config:

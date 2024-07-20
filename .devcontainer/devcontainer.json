@@ -1,0 +1,21 @@
+{
+    "name": "mongodb-practice",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/workspace",
+    "settings": {
+        "go.gopath": "/go",
+        "go.useLanguageServer": true
+    },
+    "extensions": [
+        "streetsidesoftware.code-spell-checker",
+        "golang.go",
+        "ms-azuretools.vscode-docker",
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-pg",
+        "rangav.vscode-thunder-client",
+        "mongodb.mongodb-vscode"
+    ],
+    "postCreateCommand": "go mod tidy && go version",
+    "remoteUser": "vscode"
+}
