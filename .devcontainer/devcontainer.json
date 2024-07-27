@@ -7,15 +7,17 @@
         "go.gopath": "/go",
         "go.useLanguageServer": true
     },
+    "features": {
+        "ghcr.io/devcontainers-contrib/features/mongosh-homebrew:1": {}
+    },
     "extensions": [
         "streetsidesoftware.code-spell-checker",
         "golang.go",
         "ms-azuretools.vscode-docker",
-        "mtxr.sqltools",
-        "mtxr.sqltools-driver-pg",
         "rangav.vscode-thunder-client",
         "mongodb.mongodb-vscode"
     ],
     "postCreateCommand": "go mod tidy && go version",
-    "remoteUser": "vscode"
+    "remoteUser": "vscode",
+  
 }
